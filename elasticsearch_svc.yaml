@@ -6,11 +6,11 @@ metadata:
   labels:
     app: elasticsearch
 spec:
-  selector:
-    app: elasticsearch
-  clusterIP: None
   ports:
     - port: 9200
       name: rest
-    - port: 9300
+    - port: 9200
       name: inter-node
+  selector:
+    app: elasticsearch
+  clusterIP: None
