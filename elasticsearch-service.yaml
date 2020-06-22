@@ -7,12 +7,5 @@ metadata:
   namespace: kube-logging
 spec: 
   clusterIP: None
-  ports: 
-    - 
-      name: rest
-      port: 9200
-    - 
-      name: inter-node
-      port: 9200
   selector: 
     app: elasticsearch
