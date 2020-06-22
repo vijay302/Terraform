@@ -1,16 +1,19 @@
-kind: Service
+--- 
 apiVersion: v1
-metadata:
+kind: Service
+metadata: 
+  labels: 
+    app: elasticsearch
   name: elasticsearch
   namespace: kube-logging
-  labels:
-    app: elasticsearch
-spec:
-  ports:
-    - port: 9200
-      name: rest
-    - port: 9200
-      name: inter-node
-  selector:
-    app: elasticsearch
+spec: 
   clusterIP: None
+  ports: 
+    - 
+      name: rest
+      port: 9200
+    - 
+      name: inter-node
+      port: 9200
+  selector: 
+    app: elasticsearch
