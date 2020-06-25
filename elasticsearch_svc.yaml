@@ -14,6 +14,6 @@ spec:
       port: 9200
     - 
       name: inter-node
-      port: 9200
+      port: 9300
   selector: 
     app: elasticsearch
