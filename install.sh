@@ -26,8 +26,7 @@ sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 cp /etc/kubernetes/admin.conf /home
 chown $(id -u):$(id -g) /home/admin.conf
 #$b=/home/admin.conf
-cp /home/admin.conf ~/KUBECONIFG
-#export KUBECONFIG=
+bash$ export KUBECONFIG=/home/admin.conf
 
 #echo 'export KUBECONFIG=$HOME/admin.conf' >> $HOME/.bashrc
 sudo cd /home/elasticsearch
