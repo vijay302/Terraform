@@ -23,10 +23,11 @@ sudo sysctl -p
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
 #This will  configure kubeconfig file for  default config of your system
-cp /etc/kubernetes/admin.conf ~/.kube/config
-chown $(id -u):$(id -g) ~/.kube/config/admin.conf
+cp /etc/kubernetes/admin.conf /home
+chown $(id -u):$(id -g) /home/admin.conf
 #$b=/home/admin.conf
-export KUBECONFIG=$KUBECONFIG:~/.kube/config
+cp /home/admin.conf ~/KUBECONIFG
+#export KUBECONFIG=
 
 #echo 'export KUBECONFIG=$HOME/admin.conf' >> $HOME/.bashrc
 sudo cd /home/elasticsearch
