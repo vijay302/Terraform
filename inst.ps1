@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/pwsh
 sudo su
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -26,7 +26,7 @@ sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 cp /etc/kubernetes/admin.conf /home
 chown $(id -u):$(id -g) /home/admin.conf
 #$b=/home/admin.conf
-bash$ export KUBECONFIG=/home/admin.conf
+export KUBECONFIG=/home/admin.conf
 
 #echo 'export KUBECONFIG=$HOME/admin.conf' >> $HOME/.bashrc
 sudo cd /home/elasticsearch
