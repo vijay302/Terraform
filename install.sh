@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo su
+su ubuntu
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
@@ -23,25 +23,8 @@ sudo sysctl -p
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
 #This will  configure kubeconfig file for  default config of your system
-#cp /etc/kubernetes/admin.conf /home
-#chown $(id -u):$(id -g) /home/admin.conf
-#$b=/home/admin.conf
-#bash$ export KUBECONFIG=/home/admin.conf
-
-mv  $HOME/.kube $HOME/.kube.bak
-mkdir $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
-#echo 'export KUBECONFIG=$HOME/admin.conf' >> $HOME/.bashrc
-sudo cd /home/elasticsearch
-kubectl apply -f https://github.com/vijay302/Terraform/blob/master/kube-logging.yaml
-kubectl apply -f https://github.com/vijay302/Terraform/blob/master/elasticsearch_statefulset.yaml
-kubectl apply -f https://github.com/vijay302/Terraform/blob/master/elasticsearch_svc.yaml
-kubectl apply -f https://github.com/vijay302/Terraform/blob/master/fluentd.yaml
-kubectl apply -f https://github.com/vijay302/Terraform/blob/master/kibana.yaml
-
-
-
-
-
+cp /etc/kubernetes/admin.conf /home
+chown $(id -u):$(id -g) /home/admin.conf
+export KUBECONFIG=/home/admin.conf
+echo $KUBECONFIG
+kubectl version
